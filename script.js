@@ -1,12 +1,13 @@
-function volume_sphere() {
+function volume_sphere(event) {
     //Write your code here
+	event.preventDefault();
 	let input1 = document.getElementById("radius");
 	let volume = document.getElementById("volume");
 
 	let r = parseInt(input1.value);
 
 	if(isNaN(r) || r<0 ){
-		volume.value = "NaN";
+		volume.value =  "NaN";
 		return;
 	}
 
@@ -14,6 +15,6 @@ function volume_sphere() {
 	volume.value = v.toFixed(4);
 } 
 
-document.getElementById("submit").addEventListener('click', volume_sphere)
+document.getElementById('MyForm').addEventListener('submit', volume_sphere);
 
 window.onload = document.getElementById('MyForm').onsubmit = volume_sphere;
